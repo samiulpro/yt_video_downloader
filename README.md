@@ -1,19 +1,39 @@
-Installation
 
-You have to have python 3.11 for running this script.
-And also you have to install a third party package named pytube.
+# YouTube Video Downloader Using Python
 
-For Windows Users:
-Open up terminal.
-Type: 
-    winget install Python 3.11
-    pip install pytube
+This is a simple python script to download YouTube videos easily.
 
-Running the script
 
-To run the script simply go to the directory and open a terminal there.
-Type:
-    python app.py
+## Installation
 
-Note: While giving download path you have to turn "\" into "/" before executing the code.
-Thank you enjoy.
+Download the script from gitHub.
+Open up a terminal and type:
+
+```bash
+git clone https://github.com/samiulpro/yt_video_downloader.git
+```
+After downloading you need to install some dependencies which are listed in the requirements.txt file.
+
+```bash
+pip install -r requirements.txt
+```
+This command will install all the necessary python libraries for the script.
+## Usage
+
+To use this script run
+
+```bash
+python app.py
+```
+
+
+## Features
+
+- MP3 download supported.
+- MP4 download supported.
+- Can be used to download multiple videos at once.
+- Platform: Windows, Linux and macOS
+
+## Note
+Android and IOS are not supported yet.
+

@@ -1,9 +1,10 @@
 from pytube import YouTube
 from moviepy.editor import *
 import os
-os.environ["IMAGEIO_FFMPEG_EXE"] = "/usr/bin/ffmpeg"
 import random
 import shutil
+os.environ["IMAGEIO_FFMPEG_EXE"] = "/usr/bin/ffmpeg"
+
 
 def download_mp3(link, file_path):
 
@@ -14,10 +15,12 @@ def download_mp3(link, file_path):
     resolution = youtube_obj.streams.get_highest_resolution()
     resolution.download(save_file_loc)
     name = os.listdir(save_file_loc)
-    vidname = name[0]
-    video = VideoFileClip(f"{save_file_loc}/{vidname}")
-    video.audio.write_audiofile(f'{vidname}.mp3')
+    video_name = name[0]
+    video = VideoFileClip(f"{save_file_loc}/{video_name}")
+    video.audio.write_audiofile(f'{video_name}.mp3')
     shutil.rmtree(save_file_loc)
+    os.rmdir(workdir)
+
 
 def download_mp4(link, file_path):
 
@@ -27,13 +30,13 @@ def download_mp4(link, file_path):
     resolution.download(save_file_loc)
 
 
-print("Choose the prefered format type to download your video.")
-format = input("Type 'MP3' or 'MP4': ")
-format_format = format.upper()
+print("Choose the preferred format type to download your video.")
+file_format = input("Type 'MP3' or 'MP4': ")
+format_format = file_format.upper()
 if format_format == "MP3":
     download_mp3(link=input("Video link: "), file_path=input("download_location: "))
 elif format_format == "MP4":
     download_mp4(link=input("Video Link(MP4): "), file_path=input("download_location: "))
 else:
-    print("Error occured!")
+    print("Error occurred!")
     exit()
